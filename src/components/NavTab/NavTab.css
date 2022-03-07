@@ -1,4 +1,13 @@
-.nav-tab {}
+.nav-tab {
+  background-color: var(--basic-gray-dark-ultra);
+  max-width: var(--max-width-wide);
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 30px;
+}
 
 .nav-tab__link {
   color: var(--basic-white);
@@ -6,4 +15,11 @@
   font-size: 12px;
   line-height: 16px;
   text-decoration: none;
+  text-align: center;
+  min-width: 96px;
+  min-height: 36px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: var(--basic-gray-dark);
 }
