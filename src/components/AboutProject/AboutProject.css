@@ -12,7 +12,7 @@
   gap: 40px;
 }
 
-.about-project__description {}
+/* .about-project__description {} */
 
 .about-project__description-title {
   font-weight: normal;
@@ -36,7 +36,7 @@
   flex-direction: row;
 }
 
-.about-project__interval {}
+/* .about-project__interval {} */
 
 .about-project__interval_count_one {
   flex: 1;
