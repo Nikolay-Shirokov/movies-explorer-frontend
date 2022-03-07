@@ -1,6 +1,8 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/fonts.css);
 
+@import url(./vendor/borders.css);
+
 @import url(./variables/variables.css);
 
 .root {

@@ -9,4 +9,6 @@
   --basic-gray-dark-2ultra: #202020;
   --basic-error: #FF0000;
   --basic-accent: #3DDC84;
+  --max-width: 1140px;
+  --max-width-wide: 1200px;
 }
