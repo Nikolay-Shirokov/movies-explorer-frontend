@@ -1,0 +1,9 @@
+.nav-tab {}
+
+.nav-tab__link {
+  color: var(--basic-white);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+}
