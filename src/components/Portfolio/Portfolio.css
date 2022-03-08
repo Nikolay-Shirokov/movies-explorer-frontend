@@ -13,11 +13,16 @@
 
 .portfolio__list {
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 
 .portfolio__item {
   border-bottom: 1px solid var(--basic-gray);
+}
+
+.portfolio__item:last-of-type {
+  border-bottom: none;
 }
 
 .portfolio__link {
