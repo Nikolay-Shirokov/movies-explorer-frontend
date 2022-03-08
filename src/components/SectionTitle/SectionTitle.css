@@ -6,4 +6,6 @@
   border-bottom: 1px solid var(--basic-gray-light-ultra);
   padding-bottom: 23px;
   margin: 0;
+  max-width: var(--max-width);
+  width: 100%;
 }
