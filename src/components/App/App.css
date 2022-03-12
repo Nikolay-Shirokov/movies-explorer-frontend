@@ -2,4 +2,7 @@
   font-family: 'Inter', sans-serif;
   font-style: normal;
   color: var(--basic-white);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
