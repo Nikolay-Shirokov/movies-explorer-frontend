@@ -1,0 +1,47 @@
+.movies-card {
+  display: grid;
+  grid-template-columns: auto 24px;
+  grid-template-rows: auto auto auto;
+  row-gap: 10px;
+  /* max-width: 270px; */
+}
+
+.movies-card__preview-image {
+  object-fit: cover;
+  width: 100%;
+  grid-column: 1/-1;
+}
+
+.movies-card__title {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* margin: 4px; */
+  align-self: center;
+  margin: 0;
+}
+
+.movies-card__save-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--basic-gray-dark);
+  background-image: url(../../images/heart-empty.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+.movies-card__duration {
+  font-size: 11px;
+  line-height: 13px;
+  color: var(--basic-gray-light);
+  border-top: 1px solid var(--basic-gray-light);
+  grid-column: 1/-1;
+  margin: 19px 0 0 0;
+  padding-top: 6px;
+}
