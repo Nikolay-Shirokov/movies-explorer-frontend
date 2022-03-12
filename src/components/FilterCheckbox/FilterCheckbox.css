@@ -53,7 +53,7 @@
 }
 
 .filter__checkbox:focus + .filter__slider {
-  box-shadow: 0 0 1px var(--basic-accent);
+  outline: 1px solid var(--basic-white);
 }
 
 .filter__checkbox:checked + .filter__slider:before {
