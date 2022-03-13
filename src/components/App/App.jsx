@@ -7,6 +7,7 @@ import Movies from '../Movies/Movies';
 import NotFound from '../NotFound/NotFound';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Profile from '../Profile/Profile';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/movies" element={<Movies/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/profile" element={<Profile/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
       <Footer/>
