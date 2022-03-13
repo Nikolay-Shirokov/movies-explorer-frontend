@@ -13,7 +13,7 @@ function Register(props) {
       submitTitle="Зарегистрироваться"
       aditionalText={<AditionalText
         text="Уже зарегистрированы?"
-        linkTo="/Login"
+        linkTo="/signin"
         linkText="Войти"
       />}
     >

@@ -1,14 +1,32 @@
 import './Header.css';
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
-function Header() {
+function Header(props) {
+
+  const location = useLocation();
+  const pagesWithHeader = ['/', '/movies', '/saved-movies', '/profile'];
+
+  if (!pagesWithHeader.includes(location.pathname)) {
+    return null;
+  }
+
+  const classNameOfLink = ({isActive}) => `header__link ${isActive? 'header__link_active': ''}`;
+
   return (
     <header className="header">
       <Link to='/' className="header__logo" aria-label="Перейти на главную"></Link>
-      <nav className="header__nav-links">
-        <Link to='/signin' className="header__link" aria-label="Регистрация">Регистрация</Link>
-        <Link to='/signup' className="header__link header__link_type_button" aria-label="Войти под существующим пользователем">Войти</Link>
-      </nav>
+      {props.isLogged ?
+        <nav className="header__nav-links">
+          <Link to='/signin' className="header__link" aria-label="Регистрация">Регистрация</Link>
+          <Link to='/signup' className="header__link header__link_type_button" aria-label="Войти под существующим пользователем">Войти</Link>
+        </nav>
+        :
+        <nav className="header__nav-links">
+          <NavLink to="/movies" className={classNameOfLink}>Фильмы</NavLink>
+          <NavLink to="/saved-movies" className={classNameOfLink}>Сохранённые фильмы</NavLink>
+          <Link to="/profile" className="header__link header__link_type_profile">Аккаунт</Link>
+        </nav>
+      }
     </header>
   );
 }

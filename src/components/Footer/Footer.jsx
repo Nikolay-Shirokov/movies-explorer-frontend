@@ -1,7 +1,15 @@
 import './Footer.css';
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Footer() {
+
+  const location = useLocation();
+  const pagesWithFooter = ['/', '/movies', '/saved-movies'];
+
+  if (!pagesWithFooter.includes(location.pathname)) {
+    return null;
+  }
+
   return (
     <footer className="footer">
       <p className="footer__text">Учебный проект Яндекс.Практикум х BeatFilm.</p>

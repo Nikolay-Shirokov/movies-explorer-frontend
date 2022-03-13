@@ -13,7 +13,7 @@ function Login(props) {
       submitTitle="Войти"
       aditionalText={<AditionalText
         text="Ещё не зарегистрированы?"
-        linkTo="/Register"
+        linkTo="/signup"
         linkText="Регистрация"
       />}
     >
