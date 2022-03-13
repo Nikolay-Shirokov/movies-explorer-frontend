@@ -1,0 +1,48 @@
+.form-auth {
+  max-width: 396px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 70px 0;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.form-auth__link-home {
+  display: block;
+  width: 38px;
+  height: 38px;
+  background-image: url(../../images/logo.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form-auth__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 40px 0;
+}
+
+.form-auth__form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-auth__space {
+  flex: 10;
+}
+
+.form-auth__submit-button {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: var(--basic-alt-accent);
+  width: 100%;
+  min-height: 45px;
+  color: var(--basic-white);
+  border: none;
+}

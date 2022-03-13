@@ -1,0 +1,13 @@
+.aditional-text {
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+
+.aditional-text__link {
+  margin-left: 6px;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--basic-alt-accent);
+  text-decoration: none;
+}
