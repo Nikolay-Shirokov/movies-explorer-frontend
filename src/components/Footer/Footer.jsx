@@ -16,8 +16,8 @@ function Footer() {
       <div className="footer__wrapper">
         <p className="footer__copyright">&copy; 2022</p>
         <nav className="footer__links">
-          <a href="https://practicum.yandex.ru/web/" className="footer__link" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
-          <a href="https://github.com/Nikolay-Shirokov" className="footer__link" target="_blank" rel="noreferrer">Github</a>
+          <a href="https://practicum.yandex.ru/web/" className="footer__link active-element" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
+          <a href="https://github.com/Nikolay-Shirokov" className="footer__link active-element" target="_blank" rel="noreferrer">Github</a>
         </nav>
       </div>
     </footer>

@@ -16,7 +16,7 @@ function AboutMe() {
           <div className="about-me__space"></div>
           <ul className="about-me__links">
             <li className="about-me__link-item">
-              <a href="https://github.com/Nikolay-Shirokov" className="about-me__link">GitHub</a>
+              <a href="https://github.com/Nikolay-Shirokov" className="about-me__link active-element">GitHub</a>
             </li>
           </ul>
         </article>

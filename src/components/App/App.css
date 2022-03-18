@@ -6,3 +6,12 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
+.active-element {
+  cursor: pointer;
+  transition: opacity .3s;
+}
+
+.active-element:hover {
+  opacity: .8;
+}

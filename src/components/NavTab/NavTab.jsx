@@ -4,9 +4,9 @@ import './NavTab.css';
 function NavTab() {
   return (
     <nav className='nav-tab'>
-      <Link to='#about-project' className='nav-tab__link'>О проекте</Link>
-      <Link to='#techs' className='nav-tab__link'>Технологии</Link>
-      <Link to='#about-me' className='nav-tab__link'>Студент</Link>
+      <Link to='#about-project' className='nav-tab__link active-element'>О проекте</Link>
+      <Link to='#techs' className='nav-tab__link active-element'>Технологии</Link>
+      <Link to='#about-me' className='nav-tab__link active-element'>Студент</Link>
     </nav>
   );
 }
