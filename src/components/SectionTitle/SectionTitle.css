@@ -9,3 +9,10 @@
   max-width: var(--max-width);
   width: 100%;
 }
+
+@media screen and (max-width: 750px) {
+  .section-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

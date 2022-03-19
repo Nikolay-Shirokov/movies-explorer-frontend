@@ -24,3 +24,11 @@
   border-radius: 10px;
   background-color: var(--basic-gray-dark);
 }
+
+@media screen and (max-width: 750px) {
+  .nav-tab__link {
+    font-size: 10px;
+    min-width: 82px;
+    min-height: 26px;
+  }
+}

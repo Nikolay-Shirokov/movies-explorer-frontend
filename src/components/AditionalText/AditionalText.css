@@ -2,6 +2,7 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
+  color: var(--basic-gray-light);
 }
 
 .aditional-text__link {
@@ -10,4 +11,16 @@
   line-height: 17px;
   color: var(--basic-alt-accent);
   text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .aditional-text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .aditional-text__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
 }

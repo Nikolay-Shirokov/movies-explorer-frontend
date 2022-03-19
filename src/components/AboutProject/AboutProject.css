@@ -71,15 +71,41 @@
   margin: 0;
 }
 
+@media screen and (max-width: 1000px) {
+  .about-project__description-text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
 @media screen and (max-width: 750px) {
+  .about-project__description-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
   .about-project__descriptions {
     flex-direction: column;
     gap: 0;
   }
+
   .about-project__description-text {
     margin: 0;
+    font-size: 11px;
+    line-height: 16px;
   }
+
   .about-project__timelaps {
     margin-top: 60px;
+  }
+
+  .about-project__interval-text {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .about-project__interval-title {
+    font-size: 11px;
+    line-height: 13px;
   }
 }

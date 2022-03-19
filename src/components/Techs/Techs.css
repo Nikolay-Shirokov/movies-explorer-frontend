@@ -47,3 +47,17 @@
   min-height: 60px;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 750px) {
+  .techs__title {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .techs__text {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 50px;
+  }
+}

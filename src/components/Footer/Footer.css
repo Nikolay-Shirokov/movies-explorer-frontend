@@ -42,6 +42,12 @@
 }
 
 @media screen and (max-width: 750px) {
+
+  .footer__text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
   .footer__wrapper {
     flex-direction: column-reverse;
     justify-content: center;
@@ -55,10 +61,14 @@
 
   .footer__link {
     text-align: center;
+    font-size: 12px;
+    line-height: 15px;
   }
 
   .footer__copyright {
     text-align: center;
     color: var(--basic-gray-light);
+    font-size: 12px;
+    line-height: 15px;
   }
 }

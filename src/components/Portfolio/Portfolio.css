@@ -54,11 +54,18 @@
   display: block;
 }
 
+@media screen and (max-width: 1000px) {
+  .portfolio__link-text {
+    font-size: 28px;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .portfolio__link-text {
     font-size: 18px;
     line-height: 28px;
   }
+
   .portfolio__link-arrow {
     width: 18px;
     height: 28px;
