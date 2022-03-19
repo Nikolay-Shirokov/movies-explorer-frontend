@@ -8,7 +8,7 @@ function SavedMovies() {
     <main className="movies">
       <SearchForm/>
       <Preloader/>
-      <MoviesCardList/>
+      <MoviesCardList itSavedMovies={true}/>
     </main>
   );
 }

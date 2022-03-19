@@ -6,7 +6,7 @@ function AditionalText(props) {
     <p className="aditional-text">
       {props.text}
       <Link
-        className="aditional-text__link"
+        className="aditional-text__link active-element"
         to={props.linkTo}
       >
         {props.linkText}

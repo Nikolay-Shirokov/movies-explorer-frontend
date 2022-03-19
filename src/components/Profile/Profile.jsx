@@ -14,8 +14,8 @@ function Profile(props) {
           <p className="profile__value">pochta@yandex.ru</p>
         </li>
       </ul>
-      <button className="profile__edit-button">Редактировать</button>
-      <button className="profile__signout-button">Выйти из аккаунта</button>
+      <button className="profile__edit-button active-element">Редактировать</button>
+      <button className="profile__signout-button active-element">Выйти из аккаунта</button>
     </main>
   );
 }

@@ -34,6 +34,20 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 10px;
+  opacity: 0;
+}
+
+.movies-card__save-button_type_saved {
+  background-image: url(../../images/heart-filled.svg);
+  opacity: 1;
+}
+
+.movies-card__save-button_type_unsave {
+  background-image: url(../../images/chest.svg);
+}
+
+.movies-card:hover .movies-card__save-button {
+  opacity: 1;
 }
 
 .movies-card__duration {
