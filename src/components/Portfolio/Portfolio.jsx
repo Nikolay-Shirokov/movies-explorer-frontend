@@ -8,19 +8,19 @@ function Portfolio() {
         <li className="portfolio__item">
           <a href="https://nikolay-shirokov.github.io/how-to-learn/" className="portfolio__link active-element" target="_blank" rel="noreferrer">
             <p className="portfolio__link-text">Статичный сайт</p>
-            <snap className="portfolio__link-arrow"></snap>
+            <span className="portfolio__link-arrow"></span>
           </a>
         </li>
         <li className="portfolio__item">
           <a href="https://nikolay-shirokov.github.io/russian-travel/" className="portfolio__link active-element" target="_blank" rel="noreferrer">
             <p className="portfolio__link-text">Адаптивный сайт</p>
-            <snap className="portfolio__link-arrow"></snap>
+            <span className="portfolio__link-arrow"></span>
           </a>
         </li>
         <li className="portfolio__item">
           <a href="https://nikolay-shirokov.github.io/react-mesto-auth/" className="portfolio__link active-element" target="_blank" rel="noreferrer">
             <p className="portfolio__link-text">Одностраничное приложение</p>
-            <snap className="portfolio__link-arrow"></snap>
+            <span className="portfolio__link-arrow"></span>
           </a>
         </li>
       </ul>
