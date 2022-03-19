@@ -1,5 +1,6 @@
 import './Header.css';
 import { Link, NavLink, useLocation } from "react-router-dom";
+import Navigation from '../Navigation/Navigation';
 
 function Header(props) {
 
@@ -11,7 +12,7 @@ function Header(props) {
   }
 
   const isLogged = location.pathname !== '/';
-  const classNameOfLink = ({isActive}) => `header__link ${isActive? 'header__link_active': ''} active-element`;
+  const classNameOfLink = ({ isActive }) => `header__link ${isActive ? 'header__link_active' : ''} active-element`;
 
   return (
     <header className="header">
@@ -22,11 +23,14 @@ function Header(props) {
           <Link to='/signup' className="header__link header__link_type_button active-element" aria-label="Войти под существующим пользователем">Войти</Link>
         </nav>
         :
-        <nav className="header__nav-links">
-          <NavLink to="/movies" className={classNameOfLink}>Фильмы</NavLink>
-          <NavLink to="/saved-movies" className={classNameOfLink}>Сохранённые фильмы</NavLink>
-          <Link to="/profile" className="header__link header__link_type_profile">Аккаунт</Link>
-        </nav>
+        <>
+          <nav className="header__nav-links">
+            <NavLink to="/movies" className={classNameOfLink}>Фильмы</NavLink>
+            <NavLink to="/saved-movies" className={classNameOfLink}>Сохранённые фильмы</NavLink>
+            <Link to="/profile" className="header__link header__link_type_profile">Аккаунт</Link>
+          </nav>
+          <Navigation />
+        </>
       }
     </header>
   );
