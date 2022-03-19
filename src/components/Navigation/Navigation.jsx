@@ -14,11 +14,11 @@ function Navigation() {
       <div className={`navigation__overlay ${isOpen?'navigation__overlay_opened':''}`}>
         <nav className="navigation__menu">
           <button className="navigation__close-button active-element" onClick={handleOpenCloseButtonClick}></button>
-          <NavLink to="/" className={classNameOfLink}>Главная</NavLink>
-          <NavLink to="/movies" className={classNameOfLink}>Фильмы</NavLink>
-          <NavLink to="/saved-movies" className={classNameOfLink}>Сохранённые фильмы</NavLink>
+          <NavLink to="/" className={classNameOfLink} onClick={handleOpenCloseButtonClick}>Главная</NavLink>
+          <NavLink to="/movies" className={classNameOfLink} onClick={handleOpenCloseButtonClick}>Фильмы</NavLink>
+          <NavLink to="/saved-movies" className={classNameOfLink} onClick={handleOpenCloseButtonClick}>Сохранённые фильмы</NavLink>
           <div className="navigation__space"></div>
-          <Link to="/profile" className="navigation__link navigation__link_type_profile">Аккаунт</Link>
+          <Link to="/profile" className="navigation__link navigation__link_type_profile" onClick={handleOpenCloseButtonClick}>Аккаунт</Link>
         </nav>
       </div>
     </div>
