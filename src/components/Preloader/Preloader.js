@@ -1,6 +1,10 @@
 import './Preloader.css'
 
-const Preloader = () => {
+const Preloader = (props) => {
+  if (!props.isVisible) {
+    return null;
+  }
+
   return (
       <div className="preloader">
           <div className="preloader__container">
