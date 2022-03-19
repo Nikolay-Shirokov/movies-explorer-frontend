@@ -46,3 +46,11 @@
   color: var(--basic-white);
   border: none;
 }
+
+@media screen and (max-width: 450px) {
+  .form-auth {
+    padding-left: 30px;
+    padding-right: 30px;
+    align-items: center;
+  }
+}

@@ -24,7 +24,7 @@ function Header(props) {
         </nav>
         :
         <>
-          <nav className="header__nav-links">
+          <nav className="header__nav-links header__nav-links_logged">
             <NavLink to="/movies" className={classNameOfLink}>Фильмы</NavLink>
             <NavLink to="/saved-movies" className={classNameOfLink}>Сохранённые фильмы</NavLink>
             <Link to="/profile" className="header__link header__link_type_profile">Аккаунт</Link>

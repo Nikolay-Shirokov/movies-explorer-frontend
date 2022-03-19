@@ -7,6 +7,8 @@
   max-width: var(--max-width);
   width: 100%;
   margin: 0 auto 20px auto;
+  padding: 0 var(--padding-l);
+  box-sizing: border-box;
 }
 
 .header__logo {
@@ -66,4 +68,10 @@
 
 .header__link_type_profile:hover {
   background-color: var(--basic-accent);
+}
+
+@media screen and (max-width: 1000px) {
+  .header__nav-links_logged {
+    display: none;
+  }
 }

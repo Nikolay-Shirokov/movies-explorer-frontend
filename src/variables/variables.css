@@ -12,4 +12,7 @@
   --basic-alt-accent: #4285F4;
   --max-width: 1140px;
   --max-width-wide: 1200px;
+  --padding-m: 0;
+  --padding-l: 0;
+  --padding-xl: 0;
 }

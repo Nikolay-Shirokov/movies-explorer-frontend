@@ -15,3 +15,20 @@
 .active-element:hover {
   opacity: .8;
 }
+
+@media screen and (max-width: 1200px) {
+  .page {
+    --padding-m: 20px;
+    --padding-l: 30px;
+    --padding-xl: 50px;
+    --max-width-wide: 96%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .page {
+    --padding-m: 14px;
+    --padding-l: 14px;
+    --padding-xl: 14px;
+  }
+}

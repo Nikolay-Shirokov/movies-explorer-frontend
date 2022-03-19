@@ -11,6 +11,7 @@
   background-size: contain;
   width: 44px;
   height: 44px;
+  display: none;
 }
 
 .navigation__overlay {
@@ -26,8 +27,8 @@
 }
 
 .navigation__overlay_opened {
- visibility: visible;
- opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 .navigation__menu {
@@ -98,4 +99,10 @@
 
 .navigation__space {
   flex: 10;
+}
+
+@media screen and (max-width: 1000px) {
+  .navigation__open-button {
+    display: block;
+  }
 }

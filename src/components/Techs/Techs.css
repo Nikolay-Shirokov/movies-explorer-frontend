@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 20px;
+  padding: 100px var(--padding-xl);
+  box-sizing: border-box;
 }
 
 .techs__title {

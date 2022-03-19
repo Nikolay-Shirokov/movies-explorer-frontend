@@ -6,6 +6,7 @@
   width: 100%;
   margin: 0 auto;
   padding: 74px 0;
+  box-sizing: border-box;
 }
 
 .profile__title {
@@ -62,4 +63,17 @@
   color: #EE3465;
   background-color: transparent;
   border: none;
+}
+
+@media screen and (max-width: 450px) {
+  .profile {
+    padding-left: 30px;
+    padding-right: 30px;
+    align-items: center;
+    height: 90vh;
+  }
+
+  .profile__fields {
+    flex: 10;
+  }
 }

@@ -1,13 +1,15 @@
 .about-me {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 110px 0 100px 0;
+  padding: 110px var(--padding-xl);
+  box-sizing: border-box;
 }
 
 .about-me__wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   gap: 30px;
   margin-top: 66px;
 }
@@ -48,7 +50,7 @@
 }
 
 .about-me__links {
-  margin: 0;
+  margin: 20px 0 0 0;
   padding: 0;
   list-style: none;
   flex: 1;
@@ -66,4 +68,10 @@
   object-fit: cover;
   width: 270px;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 750px) {
+  .about-me__wrapper {
+    flex-direction: column-reverse;
+  }
 }
