@@ -11,7 +11,7 @@ function AboutMe() {
           <h3 className="about-me__title">Николай</h3>
           <p className="about-me__subtitle">Разработчик, 35 лет</p>
           <p className="about-me__text">Живу в Санкт-Петербурге. В 2009 году окончил СПбГУАП
-            по специальности радиоэлектроника. С тех пор работаю разработчиком
+            по специальности радиоэлектронные системы. С тех пор работаю разработчиком
             на платформе 1С. На текущий момент в ГК "Корус Консалтинг"</p>
           <div className="about-me__space"></div>
           <ul className="about-me__links">
