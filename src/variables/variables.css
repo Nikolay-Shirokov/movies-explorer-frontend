@@ -1,0 +1,18 @@
+:root {
+  --basic-dark: #000;
+  --basic-white: #fff;
+  --basic-gray-light-ultra: #dadada;
+  --basic-gray-light: #8b8b8b;
+  --basic-gray: #424242;
+  --basic-gray-dark: #303030;
+  --basic-gray-dark-ultra: #272727;
+  --basic-gray-dark-2ultra: #202020;
+  --basic-error: #FF0000;
+  --basic-accent: #3DDC84;
+  --basic-alt-accent: #4285F4;
+  --max-width: 1140px;
+  --max-width-wide: 1200px;
+  --padding-m: 0;
+  --padding-l: 0;
+  --padding-xl: 0;
+}

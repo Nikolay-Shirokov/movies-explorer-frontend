@@ -1,0 +1,108 @@
+.navigation {
+  z-index: 1;
+  display: none;
+}
+
+.navigation__open-button {
+  border: none;
+  background-color: transparent;
+  background-image: url(../../images/burger.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 44px;
+  height: 44px;
+}
+
+.navigation__overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(30, 30, 30, .3);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s, visibility .3s linear;
+}
+
+.navigation__overlay_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.navigation__menu {
+  margin-left: auto;
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  background-color: var(--basic-gray-dark-2ultra);
+  /* z-index: 1; */
+  height: 100%;
+  padding: 90px 10px;
+  box-sizing: border-box;
+}
+
+.navigation__close-button {
+  border: none;
+  background-color: transparent;
+  background-image: url(../../images/chest.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 13px;
+  right: 33px;
+}
+
+.navigation__link {
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--basic-white);
+  box-sizing: border-box;
+  border-bottom: 2px solid transparent;
+}
+
+.navigation__link_active {
+  border-bottom: 2px solid var(--basic-white);
+}
+
+.navigation__link_type_profile {
+  border-radius: 50px;
+  border: 2px solid var(--basic-gray);
+  padding: 8px 12px 8px 30px;
+  position: relative;
+}
+
+.navigation__link_type_profile::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 11px;
+  width: 12px;
+  height: 14px;
+  background-image: url(../../images/profile.svg);
+}
+
+.navigation__link_type_profile:hover {
+  background-color: var(--basic-accent);
+}
+
+.navigation__space {
+  flex: 10;
+}
+
+@media screen and (max-width: 1000px) {
+  .navigation {
+    display: block;
+  }
+}
