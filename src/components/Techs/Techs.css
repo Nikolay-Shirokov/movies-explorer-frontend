@@ -8,6 +8,7 @@
 }
 
 .techs__title {
+  font-weight: 400;
   font-size: 50px;
   line-height: 58px;
   text-align: center;
@@ -54,7 +55,6 @@
   }
 
   .techs__title {
-    font-weight: 400;
     font-size: 30px;
     line-height: 36px;
   }
