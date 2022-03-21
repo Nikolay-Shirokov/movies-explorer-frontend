@@ -49,6 +49,10 @@
 }
 
 @media screen and (max-width: 750px) {
+  .techs {
+    background-color: transparent;
+  }
+
   .techs__title {
     font-weight: 400;
     font-size: 30px;
