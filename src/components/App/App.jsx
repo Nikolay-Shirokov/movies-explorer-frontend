@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 
 import { useAuth } from '../../hooks/useAuth';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import RequireAuth from '../RequireAuth/RequireAuth';
 
 function App() {
 
@@ -32,11 +33,23 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/saved-movies" element={<SavedMovies />} />
+          <Route path="/movies" element={
+            <RequireAuth redirectTo="/">
+              <Movies />
+            </RequireAuth>
+          } />
+          <Route path="/saved-movies" element={
+            <RequireAuth redirectTo="/">
+              <SavedMovies />
+            </RequireAuth>
+          } />
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={
+            <RequireAuth redirectTo="/">
+              <Profile />
+            </RequireAuth>
+          } />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
