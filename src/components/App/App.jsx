@@ -30,7 +30,7 @@ function App() {
   function handleUpdateUser(newUserInfo) {
     return api.patchUserInfo(newUserInfo)
       .then(res => {
-        setCurrentUser(res);
+        setCurrentUser({...res});
       })
   }
 
