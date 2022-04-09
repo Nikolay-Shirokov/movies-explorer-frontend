@@ -32,7 +32,6 @@ function App() {
       .then(res => {
         setCurrentUser(res);
       })
-      .catch(handleError)
   }
 
   return (
