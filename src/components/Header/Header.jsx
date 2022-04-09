@@ -2,6 +2,7 @@ import './Header.css';
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Navigation from '../Navigation/Navigation';
 import { useContext } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function Header(props) {
 
