@@ -11,6 +11,9 @@ function Login(props) {
     <FormAuth
       title="Рады видеть!"
       submitTitle="Войти"
+      isValid={isValid}
+      values={values}
+      handleSubmit={props.handleSubmit}
       aditionalText={<AditionalText
         text="Ещё не зарегистрированы?"
         linkTo="/signup"
