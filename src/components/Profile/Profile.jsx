@@ -9,7 +9,7 @@ function Profile(props) {
   const { values, handleChange, errors, isValid } = useFormAndValidation({ name: currentUser.name, email: currentUser.email });
 
   const defaultErrorText = 'Что-то пошло не так! Попробуйте ещё раз.';
-  const [status, setStatus] = useState({ ok: true, text: defaultErrorText });
+  const [status, setStatus] = useState({ ok: true, text: '' });
 
   let isModifed = false;
   for (let key of Object.keys(values)) {
@@ -25,7 +25,7 @@ function Profile(props) {
       .then(res => {
         setStatus({
           ok: true,
-          text: props.succesText || 'Успешно!',
+          text: props.succesText || 'Данные профиля успешно обновлены!',
         })
       })
       .catch(err => {
@@ -52,7 +52,7 @@ function Profile(props) {
             <span className={`profile__input-error ${!errors.email ? '' : 'profile__input-error_visible'}`} data-input-name="email">{errors.email}</span>
           </li>
         </ul>
-        <p className={`profile__submit-error ${status.ok ? '' : 'profile__submit-error_visible'}`}>{status.text}</p>
+        <p className={`profile__submit-error ${status.ok ? 'profile__submit-error_success' : 'profile__submit-error_visible'}`}>{status.text}</p>
         <button
           className={`profile__edit-button ${!(isValid && isModifed) ? 'profile__edit-button_disabled' : 'active-element'}`}
           type="submit"

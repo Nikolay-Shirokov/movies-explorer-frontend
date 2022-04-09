@@ -104,6 +104,11 @@
   opacity: 1;
 }
 
+.profile__submit-error_success {
+  opacity: 1;
+  color: var(--basic-success);
+}
+
 .profile__signout-button {
   font-weight: 500;
   font-size: 13px;
