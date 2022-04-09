@@ -12,6 +12,7 @@ function Register(props) {
       title="Добро пожаловать!"
       submitTitle="Зарегистрироваться"
       isValid={isValid}
+      values={values}
       handleSubmit={props.handleSubmit}
       aditionalText={<AditionalText
         text="Уже зарегистрированы?"
