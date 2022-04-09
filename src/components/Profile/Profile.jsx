@@ -6,7 +6,7 @@ import './Profile.css';
 function Profile(props) {
 
   const currentUser = useContext(CurrentUserContext);
-  const { values, handleChange, errors, isValid } = useFormAndValidation(currentUser);
+  const { values, handleChange, errors, isValid } = useFormAndValidation({ name: currentUser.name, email: currentUser.email });
 
   const defaultErrorText = 'Что-то пошло не так! Попробуйте ещё раз.';
   const [status, setStatus] = useState({ ok: true, text: defaultErrorText });
@@ -43,23 +43,23 @@ function Profile(props) {
         <ul className="profile__fields">
           <li className="profile__field">
             <label className="profile__label" htmlFor="name">Имя</label>
-            <input className="profile__value" type="text" name="name" id="name" placeholder="Укажите имя.." value={values.name} onChange={handleChange} />
+            <input className="profile__value" type="text" name="name" id="name" placeholder="Укажите имя.." value={values.name} onChange={handleChange} pattern="[a-zA-Zа-яёА-ЯЁ\s\-]*" required/>
             <span className={`profile__input-error ${!errors.name ? '' : 'profile__input-error_visible'}`} data-input-name="name">{errors.name}</span>
           </li>
           <li className="profile__field">
             <label className="profile__label" htmlFor="email">E-mail</label>
-            <input className="profile__value" type="email" name="email" id="email" placeholder="Укажите email.." value={values.email} onChange={handleChange} />
+            <input className="profile__value" type="email" name="email" id="email" placeholder="Укажите email.." value={values.email} onChange={handleChange} required/>
             <span className={`profile__input-error ${!errors.email ? '' : 'profile__input-error_visible'}`} data-input-name="email">{errors.email}</span>
           </li>
         </ul>
         <p className={`profile__submit-error ${status.ok ? '' : 'profile__submit-error_visible'}`}>{status.text}</p>
         <button
-          className={`profile__edit-button ${!(isValid&&isModifed) ? 'profile__edit-button_disabled' : 'active-element'}`}
+          className={`profile__edit-button ${!(isValid && isModifed) ? 'profile__edit-button_disabled' : 'active-element'}`}
           type="submit"
-          disabled={!(isValid&&isModifed)}
+          disabled={!(isValid && isModifed)}
         >Редактировать</button>
       </form>
-      <button className="profile__signout-button active-element">Выйти из аккаунта</button>
+      <button className="profile__signout-button active-element" onClick={props.handleLogout}>Выйти из аккаунта</button>
     </main>
   );
 }

@@ -42,6 +42,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 35px auto;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--basic-gray);
@@ -66,7 +67,7 @@
 
 .profile__input-error {
   grid-column: 1/-1;
-  min-height: 23px;
+  /* min-height: 23px; */
   font-size: 12px;
   line-height: 15px;
   color: var(--basic-error);
@@ -88,7 +89,7 @@
 }
 
 .profile__edit-button_disabled {
-  background-color: var(--basic-gray);
+  color: var(--basic-gray);
 }
 
 .profile__submit-error {
