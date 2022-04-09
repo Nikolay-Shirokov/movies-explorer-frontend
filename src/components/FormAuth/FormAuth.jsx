@@ -22,7 +22,7 @@ function FormAuth(props) {
       .catch(err => {
         setStatus({
           ok: false,
-          text: err.text || defaultErrorText,
+          text: err.message || defaultErrorText,
         })
       })
   }
