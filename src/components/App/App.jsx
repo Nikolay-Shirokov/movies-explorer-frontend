@@ -43,11 +43,11 @@ function App() {
               <SavedMovies />
             </RequireAuth>
           } />
-          <Route path="/signin" element={<Login />} />
-          <Route path="/signup" element={<Register />} />
+          <Route path="/signin" element={<Login handleSubmit={handleSignin}/>} />
+          <Route path="/signup" element={<Register handleSubmit={handleSignup}/>} />
           <Route path="/profile" element={
             <RequireAuth redirectTo="/">
-              <Profile />
+              <Profile handleLogout={handleLogout}/>
             </RequireAuth>
           } />
           <Route path="*" element={<NotFound />} />

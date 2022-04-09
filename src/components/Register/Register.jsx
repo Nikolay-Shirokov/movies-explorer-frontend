@@ -11,6 +11,8 @@ function Register(props) {
     <FormAuth
       title="Добро пожаловать!"
       submitTitle="Зарегистрироваться"
+      isValid={isValid}
+      handleSubmit={props.handleSubmit}
       aditionalText={<AditionalText
         text="Уже зарегистрированы?"
         linkTo="/signin"
@@ -23,6 +25,7 @@ function Register(props) {
         name="name"
         value={values.name}
         error={errors.name}
+        pattern="[a-zA-Zа-яёА-ЯЁ\s\-]*"
         handleChange={handleChange}
       />
       <FormField
