@@ -15,6 +15,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import RequireAuth from '../RequireAuth/RequireAuth';
 import api from '../../utils/MainApi';
+import { handleError } from '../../utils/utils';
 
 function App() {
 
