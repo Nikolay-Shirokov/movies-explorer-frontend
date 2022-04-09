@@ -28,7 +28,7 @@ class Api {
       },
       body: JSON.stringify({
         name: userInfo.name,
-        about: userInfo.about
+        email: userInfo.email
       })
     }
     return this._sendQuery('users/me', queryParams);
