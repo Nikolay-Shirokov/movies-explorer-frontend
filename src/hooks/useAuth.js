@@ -34,7 +34,7 @@ export function useAuth() {
           loggedIn: true,
           ...res,
         });
-        navigate('/')
+        navigate('/movies')
       })
   }
 
