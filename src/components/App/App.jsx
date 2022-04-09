@@ -25,6 +25,14 @@ function App() {
 
   }, []);
 
+  function handleUpdateUser(newUserInfo) {
+    return api.patchUserInfo(newUserInfo)
+      .then(res => {
+        setCurrentUser(res);
+      })
+      .catch(handleError)
+  }
+
   return (
     <div className="page">
 
@@ -47,7 +55,7 @@ function App() {
           <Route path="/signup" element={<Register handleSubmit={handleSignup}/>} />
           <Route path="/profile" element={
             <RequireAuth redirectTo="/">
-              <Profile handleLogout={handleLogout}/>
+              <Profile handleLogout={handleLogout} handleSubmit={handleUpdateUser}/>
             </RequireAuth>
           } />
           <Route path="*" element={<NotFound />} />
