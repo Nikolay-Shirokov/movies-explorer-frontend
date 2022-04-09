@@ -14,7 +14,7 @@ function Header(props) {
     return null;
   }
 
-  const isLogged = currentUser.isLogged;
+  const isLogged = currentUser.loggedIn;
   const classNameOfLink = ({ isActive }) => `header__link ${isActive ? 'header__link_active' : ''} active-element`;
 
   return (
