@@ -1,17 +1,19 @@
 import './Header.css';
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Navigation from '../Navigation/Navigation';
+import { useContext } from 'react';
 
 function Header(props) {
 
   const location = useLocation();
+  const currentUser = useContext(CurrentUserContext);
   const pagesWithHeader = ['/', '/movies', '/saved-movies', '/profile'];
 
   if (!pagesWithHeader.includes(location.pathname)) {
     return null;
   }
 
-  const isLogged = location.pathname !== '/';
+  const isLogged = currentUser.isLogged;
   const classNameOfLink = ({ isActive }) => `header__link ${isActive ? 'header__link_active' : ''} active-element`;
 
   return (
