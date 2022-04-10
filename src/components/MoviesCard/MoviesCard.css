@@ -6,10 +6,15 @@
   /* max-width: 270px; */
 }
 
+.movies-card__link {
+  margin: 0;
+  grid-column: 1/-1;
+}
+
 .movies-card__preview-image {
   object-fit: cover;
   width: 100%;
-  grid-column: 1/-1;
+  aspect-ratio: 339/190;
 }
 
 .movies-card__title {
