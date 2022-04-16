@@ -62,6 +62,44 @@ class Api {
     }
     return this._sendQuery('signout', queryParams)
   }
+
+  getSavedMovies() {
+    const queryParams = {
+      method: 'GET',
+    }
+    return this._sendQuery('movies', queryParams)
+  }
+
+  postSavedMovie(movie) {
+    const queryParams = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: movie.image,
+        trailerLink: movie.trailerLink,
+        thumbnail: movie.thumbnail,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+      }),
+    }
+    return this._sendQuery('movies', queryParams)
+  }
+
+  deleteSavedMovie(movieId) {
+    const queryParams = {
+      method: 'DELETE',
+    }
+    return this._sendQuery(`movies/${movieId}`, queryParams);
+  }
+
 }
 
 // Инициализация АПИ

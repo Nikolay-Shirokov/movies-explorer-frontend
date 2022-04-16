@@ -60,6 +60,8 @@ function MoviesCardList(props) {
         <MoviesCard
           {...movie}
           key={movie.id || movie._id}
+          saveMovie={props.saveMovie}
+          unsaveMovie={props.unsaveMovie}
         />
       ));
   }

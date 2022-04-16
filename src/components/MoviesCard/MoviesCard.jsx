@@ -4,7 +4,23 @@ import { useState } from 'react';
 function MoviesCard(props) {
 
   const [isSaved, setIsSaved] = useState(props.isSaved || false);
-  const handlerSaveButtonClick = () => setIsSaved(!isSaved);
+
+  const sendQuery = () => {
+    if (isSaved) {
+      return props.unsaveMovie(props);
+    }
+
+    return props.saveMovie(props);
+  }
+
+  const handlerSaveButtonClick = () => {
+
+    sendQuery()
+      .then(res => {
+        setIsSaved(!isSaved);
+      })
+  }
+
   const saveButtonClassArray = [
     'movies-card__save-button',
     isSaved ? 'movies-card__save-button_type_saved' : '',
@@ -19,7 +35,7 @@ function MoviesCard(props) {
   function calcDuraton(durationInMinutes) {
     const hourQty = Math.round(durationInMinutes / 60);
     const minutesQty = durationInMinutes % 60;
-    return `${hourQty > 0? `${hourQty}ч`:''}${minutesQty}м`;
+    return `${hourQty > 0 ? `${hourQty}ч` : ''}${minutesQty}м`;
   }
 
   return (

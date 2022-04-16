@@ -15,7 +15,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import RequireAuth from '../RequireAuth/RequireAuth';
 import api from '../../utils/MainApi';
-import { handleError } from '../../utils/utils';
+import moviesApi from '../../utils/MovieApi';
 
 function App() {
 
@@ -37,6 +37,32 @@ function App() {
       })
   }
 
+  function saveMovie(movie) {
+    return api.postSavedMovie(movie);
+  }
+
+  function unsaveMovie(movie) {
+    return api.deleteSavedMovie(movie.movieId || movie.id);
+  }
+
+  function getSavedMovies() {
+    return api.getSavedMovies();
+  }
+
+  function getMovies() {
+    return Promise.all([moviesApi.getAllMovies(), getSavedMovies()])
+    .then(([moviesAll, savedMovies]) => {
+      if (savedMovies.length === 0) {
+        return moviesAll;
+      }
+      const savedMoviesMap = new Map();
+      savedMovies.forEach(movie => {
+        savedMoviesMap.set(movie._id, true);
+      })
+      return moviesAll.map(movie => movie.isSaved = (savedMoviesMap.get(movie.id) === true));
+    })
+  }
+
   return (
     <div className="page">
 
@@ -47,19 +73,27 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/movies" element={
             <RequireAuth redirectTo="/">
-              <Movies />
+              <Movies
+                saveMovie={saveMovie}
+                unsaveMovie={unsaveMovie}
+                getMovies={getMovies}
+              />
             </RequireAuth>
           } />
           <Route path="/saved-movies" element={
             <RequireAuth redirectTo="/">
-              <SavedMovies />
+              <SavedMovies
+                saveMovie={saveMovie}
+                unsaveMovie={unsaveMovie}
+                getMovies={getSavedMovies}
+              />
             </RequireAuth>
           } />
-          <Route path="/signin" element={<Login handleSubmit={handleSignin}/>} />
-          <Route path="/signup" element={<Register handleSubmit={handleSignup}/>} />
+          <Route path="/signin" element={<Login handleSubmit={handleSignin} />} />
+          <Route path="/signup" element={<Register handleSubmit={handleSignup} />} />
           <Route path="/profile" element={
             <RequireAuth redirectTo="/">
-              <Profile handleLogout={handleLogout} handleSubmit={handleUpdateUser}/>
+              <Profile handleLogout={handleLogout} handleSubmit={handleUpdateUser} />
             </RequireAuth>
           } />
           <Route path="*" element={<NotFound />} />
