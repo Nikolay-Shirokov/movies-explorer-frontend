@@ -1,5 +1,6 @@
 import './MoviesCard.css';
 import { useState } from 'react';
+import { calcPath } from '../../utils/utils';
 
 function MoviesCard(props) {
 
@@ -27,10 +28,6 @@ function MoviesCard(props) {
     props.itSavedMovies ? 'movies-card__save-button_type_unsave' : '',
     'active-element'
   ];
-
-  function calcPath(url) {
-    return 'https://api.nomoreparties.co' + url;
-  }
 
   function calcDuraton(durationInMinutes) {
     const hourQty = Math.round(durationInMinutes / 60);

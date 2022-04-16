@@ -1,3 +1,5 @@
+import { calcPath } from "./utils";
+
 class Api {
 
   constructor(options) {
@@ -82,7 +84,7 @@ class Api {
         duration: movie.duration,
         year: movie.year,
         description: movie.description,
-        image: movie.image.url,
+        image: calcPath(movie.image.url),
         trailerLink: movie.trailerLink,
         thumbnail: movie.thumbnail,
         movieId: movie.id,
