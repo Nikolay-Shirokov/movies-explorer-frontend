@@ -11,6 +11,7 @@ function FormField(props) {
         type={props.type}
         name={props.name}
         pattern={props.pattern}
+        autoComplete="off"
         required />
       <span
         className={`form-field__input-error ${!props.error ? '' : 'form-field__input-error_visible'}`}

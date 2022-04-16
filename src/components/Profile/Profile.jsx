@@ -43,12 +43,12 @@ function Profile(props) {
         <ul className="profile__fields">
           <li className="profile__field">
             <label className="profile__label" htmlFor="name">Имя</label>
-            <input className="profile__value" type="text" name="name" id="name" placeholder="Укажите имя.." value={values.name} onChange={handleChange} pattern="[a-zA-Zа-яёА-ЯЁ\s\-]*" required/>
+            <input className="profile__value" type="text" name="name" id="name" placeholder="Укажите имя.." value={values.name} onChange={handleChange} pattern="[a-zA-Zа-яёА-ЯЁ\s\-]*" required autoComplete="off"/>
             <span className={`profile__input-error ${!errors.name ? '' : 'profile__input-error_visible'}`} data-input-name="name">{errors.name}</span>
           </li>
           <li className="profile__field">
             <label className="profile__label" htmlFor="email">E-mail</label>
-            <input className="profile__value" type="email" name="email" id="email" placeholder="Укажите email.." value={values.email} onChange={handleChange} required/>
+            <input className="profile__value" type="email" name="email" id="email" placeholder="Укажите email.." value={values.email} onChange={handleChange} required autoComplete="off"/>
             <span className={`profile__input-error ${!errors.email ? '' : 'profile__input-error_visible'}`} data-input-name="email">{errors.email}</span>
           </li>
         </ul>

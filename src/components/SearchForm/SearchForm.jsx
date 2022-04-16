@@ -64,7 +64,7 @@ function SearchForm(props) {
   return (
     <section className="search">
       <form className="search__form" onSubmit={handleSubmit}>
-        <input className="search__input" placeholder="Фильм" required name="searchText" value={searchParams.searchText} onChange={handleChange} />
+        <input className="search__input" placeholder="Фильм" required name="searchText" value={searchParams.searchText} onChange={handleChange} autoComplete="off"/>
         <button type="submit" className="search__button active-element"></button>
       </form>
       <FilterCheckbox checked={searchParams.shortfilm} handleChange={handleChange} />
