@@ -7,7 +7,6 @@ function SavedMovies() {
   return (
     <main className="movies">
       <SearchForm/>
-      <Preloader/>
       <MoviesCardList itSavedMovies={true}/>
     </main>
   );

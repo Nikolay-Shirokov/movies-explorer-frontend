@@ -9,17 +9,20 @@ function Movies() {
 
   const [moviesArray, setMoviesArray] = useState([]);
 
-  useEffect(() => {
+  const getMovies = () => {
+    return moviesApi.getAllMovies();
+  }
+
+/*   useEffect(() => {
     moviesApi.getAllMovies()
       .then(res => {
         setMoviesArray(res)
       })
-  }, [])
+  }, []) */
 
   return (
     <main className="movies">
-      <SearchForm/>
-      <Preloader/>
+      <SearchForm getMovies={getMovies} setMoviesArray={setMoviesArray} />
       <MoviesCardList moviesArray={moviesArray} />
     </main>
   );

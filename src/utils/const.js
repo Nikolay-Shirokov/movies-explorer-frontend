@@ -2,3 +2,5 @@ export const SCREEN_WIDTH = {
   LARGE: 1200,
   MEDIUM: 930
 }
+
+export const MOVIE_DURATION_SHORTLIMIT = 40;
