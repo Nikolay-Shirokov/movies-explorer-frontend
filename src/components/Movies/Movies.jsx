@@ -22,7 +22,7 @@ function Movies() {
 
   return (
     <main className="movies">
-      <SearchForm getMovies={getMovies} setMoviesArray={setMoviesArray} />
+      <SearchForm getMovies={getMovies} moviesArray={moviesArray} setMoviesArray={setMoviesArray} />
       <MoviesCardList moviesArray={moviesArray} />
     </main>
   );

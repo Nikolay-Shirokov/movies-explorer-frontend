@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import Preloader from '../Preloader/Preloader';
 import './SearchForm.css';
-import { MOVIE_DURATION_SHORTLIMIT } from '../../utils/const';
+import { MOVIE_DURATION_SHORTLIMIT, DEFAULT_ERROR_MESSAGE } from '../../utils/const';
 
 function SearchForm(props) {
 
@@ -11,6 +11,9 @@ function SearchForm(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useState({ searchText: '', shortfilm: false })
   const [moviesAll, setMoviesAll] = useState([]);
+
+  const emptyInfo = {text: '', error: false};
+  const [info, setInfo] = useState(emptyInfo);
 
   function filterMovies(moviesNotFiltered) {
     const newMoviesArray = moviesNotFiltered.filter(
@@ -26,10 +29,14 @@ function SearchForm(props) {
   function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
+    setInfo(emptyInfo);
     props.getMovies()
       .then(moviesNotFiltered => {
         setMoviesAll(moviesNotFiltered);
         filterMovies(moviesNotFiltered);
+      })
+      .catch(err => {
+        setInfo({error: true, text: err.message || DEFAULT_ERROR_MESSAGE})
       })
       .finally(() => setIsLoading(false))
   }
@@ -46,6 +53,14 @@ function SearchForm(props) {
     filterMovies(moviesAll);
   }, [searchParams.shortfilm])
 
+  useEffect(()=>{
+    if (searchParams.searchText
+        && !info.error
+        && moviesArray.length === 0) {
+      setInfo({error: false, text: 'Ничего не найдено'})
+    }
+  }, [moviesArray])
+
   return (
     <section className="search">
       <form className="search__form" onSubmit={handleSubmit}>
@@ -53,6 +68,7 @@ function SearchForm(props) {
         <button type="submit" className="search__button active-element"></button>
       </form>
       <FilterCheckbox checked={searchParams.shortfilm} handleChange={handleChange} />
+      <p className={`search__info-text ${info.error? 'search__info-text_type_error': ''}`}>{info.text}</p>
       <Preloader isVisible={isLoading} />
     </section>
   );
