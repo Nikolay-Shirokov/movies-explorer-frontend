@@ -82,7 +82,7 @@ class Api {
         duration: movie.duration,
         year: movie.year,
         description: movie.description,
-        image: movie.image,
+        image: movie.image.url,
         trailerLink: movie.trailerLink,
         thumbnail: movie.thumbnail,
         movieId: movie.id,
