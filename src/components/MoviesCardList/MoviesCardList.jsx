@@ -62,6 +62,7 @@ function MoviesCardList(props) {
           key={movie.id || movie._id}
           saveMovie={props.saveMovie}
           unsaveMovie={props.unsaveMovie}
+          itSavedMovies={itSavedMovies}
         />
       ));
   }
