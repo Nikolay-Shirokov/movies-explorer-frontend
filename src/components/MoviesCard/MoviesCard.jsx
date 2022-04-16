@@ -4,7 +4,7 @@ import { calcPath } from '../../utils/utils';
 
 function MoviesCard(props) {
 
-  const [isSaved, setIsSaved] = useState(props.isSaved || false);
+  const [isSaved, setIsSaved] = useState(props.isSaved || props.itSavedMovies || false);
 
   const sendQuery = () => {
     if (isSaved) {
