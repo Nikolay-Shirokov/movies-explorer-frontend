@@ -59,7 +59,7 @@ function App() {
         savedMovies.forEach(movie => {
           savedMoviesMap.set(movie._id, true);
         })
-        return moviesAll.Map(movie => {
+        return moviesAll.map(movie => {
           movie.isSaved = (savedMoviesMap.get(movie.id) === true)
           return movie
         });
