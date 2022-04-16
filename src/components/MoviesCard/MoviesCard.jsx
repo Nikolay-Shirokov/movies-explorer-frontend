@@ -38,7 +38,7 @@ function MoviesCard(props) {
   return (
     <li className="movies-card">
       <a className="movies-card__link" target="_blank" href={props.trailerLink}>
-        <img className="movies-card__preview-image" src={calcPath(props.image.url)} alt={props.image.alternativeText || 'Кадр из фильма'} />
+        <img className="movies-card__preview-image" src={props.image.url?calcPath(props.image.url):props.image} alt={props.image.alternativeText || 'Кадр из фильма'} />
       </a>
       <h3 className="movies-card__title">{props.nameRU}</h3>
       <button className={saveButtonClassArray.join(' ')} onClick={handlerSaveButtonClick}></button>
