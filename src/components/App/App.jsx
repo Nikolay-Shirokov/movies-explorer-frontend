@@ -58,11 +58,9 @@ function App() {
     return api.deleteSavedMovie(movie.movieId || movie.id)
     .then(deletedMovie => {
 
-      movie.isSaved = true;
-
       const savedMoviesJSON = localStorage.getItem(LOCATION.SAVED_MOVIES);
       const savedMovies = !savedMoviesJSON? []: JSON.parse(savedMoviesJSON);
-      const newSavedMovies = savedMovies.filter(movie => ((movie.movieId || movie.id) === deletedMovie.movieId));
+      const newSavedMovies = savedMovies.filter(movie => ((movie.movieId || movie.id) !== deletedMovie.movieId));
 
       localStorage.setItem(LOCATION.SAVED_MOVIES, JSON.stringify(newSavedMovies));
 
