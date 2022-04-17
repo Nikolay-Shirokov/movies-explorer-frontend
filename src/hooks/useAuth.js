@@ -46,6 +46,7 @@ export function useAuth() {
     return api.signout()
       .then(res => {
         setCurrentUser(emptyAuthInfo);
+        localStorage.clear();
         navigate('/')
       })
   }
