@@ -85,7 +85,7 @@ function SearchForm(props) {
 
     } else {
       const savedMovies = localStorage.getItem(LOCATION.SAVED_MOVIES);
-      setMoviesAll(!savedMovies, [], JSON.parse(savedMovies));
+      setMoviesAll(!savedMovies? []: JSON.parse(savedMovies));
     }
   }, [])
 
