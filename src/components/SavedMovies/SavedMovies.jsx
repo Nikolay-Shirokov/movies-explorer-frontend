@@ -1,7 +1,7 @@
 import SearchForm from '../SearchForm/SearchForm';
 import '../Movies/Movies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function SavedMovies(props) {
