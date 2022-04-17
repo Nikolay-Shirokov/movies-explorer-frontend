@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 function SavedMovies(props) {
 
   const location = useLocation();
+  const pathname = location.pathname;
 
   const [moviesArray, setMoviesArray] = useState([]);
 
@@ -14,12 +15,13 @@ function SavedMovies(props) {
     props.getMovies()
       .then(moviesNotFiltered => {
         setMoviesArray(moviesNotFiltered);
-        localStorage.setItem(location, moviesNotFiltered);
+        localStorage.setItem(pathname, JSON.stringify(moviesNotFiltered));
       })
   }, []);
 
   function getMovies() {
-    const moviesNotFiltered = localStorage.getItem(location);
+    const moviesJSON = localStorage.getItem(pathname);
+    const moviesNotFiltered = !moviesNotFiltered? []: JSON.parse(moviesJSON);
     return Promise.resolve(moviesNotFiltered || []);
   }
 
