@@ -16,7 +16,11 @@ function SavedMovies(props) {
 
   useEffect(() => {
     props.getMovies()
-      .then(moviesNotFiltered => {
+      .then(movies => {
+        const moviesNotFiltered = movies.map(movie => {
+          movie.isSaved = true;
+          return movie;
+        })
         setMoviesArray(moviesNotFiltered);
         localStorage.setItem(pathname, JSON.stringify(moviesNotFiltered));
       })
