@@ -89,7 +89,7 @@ function SearchForm(props) {
 
   useEffect(() => {
     filterMovies(moviesAll);
-  }, [searchParams.shortfilm])
+  }, [moviesAll, searchParams.shortfilm])
 
   useEffect(() => {
     if (searchParams.searchText
