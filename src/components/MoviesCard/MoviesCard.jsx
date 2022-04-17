@@ -30,7 +30,7 @@ function MoviesCard(props) {
   ];
 
   function calcDuraton(durationInMinutes) {
-    const hourQty = Math.round(durationInMinutes / 60);
+    const hourQty = Math.trunc(durationInMinutes / 60);
     const minutesQty = durationInMinutes % 60;
     return `${hourQty > 0 ? `${hourQty}ч` : ''}${minutesQty}м`;
   }
