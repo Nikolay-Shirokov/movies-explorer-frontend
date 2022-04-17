@@ -12,5 +12,8 @@ export const BASE_IMAGE_URL = 'https://api.nomoreparties.co';
 export const LOCATION = {
   MOVIES: '/movies',
   SAVED_MOVIES: '/saved-movies',
-
+  PROFILE: '/profile',
+  HOME: '/',
+  SIGNIN: '/signin',
+  SIGNUP: '/signup',
 }

@@ -85,9 +85,9 @@ function App() {
 
         <Header />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path={LOCATION.HOME} element={<Main />} />
           <Route path={LOCATION.MOVIES} element={
-            <RequireAuth redirectTo="/">
+            <RequireAuth redirectTo={LOCATION.HOME}>
               <Movies
                 saveMovie={saveMovie}
                 unsaveMovie={unsaveMovie}
@@ -96,7 +96,7 @@ function App() {
             </RequireAuth>
           } />
           <Route path={LOCATION.SAVED_MOVIES} element={
-            <RequireAuth redirectTo="/">
+            <RequireAuth redirectTo={LOCATION.HOME}>
               <SavedMovies
                 saveMovie={saveMovie}
                 unsaveMovie={unsaveMovie}
@@ -104,10 +104,10 @@ function App() {
               />
             </RequireAuth>
           } />
-          <Route path="/signin" element={<Login handleSubmit={handleSignin} />} />
-          <Route path="/signup" element={<Register handleSubmit={handleSignup} />} />
-          <Route path="/profile" element={
-            <RequireAuth redirectTo="/">
+          <Route path={LOCATION.SIGNIN} element={<Login handleSubmit={handleSignin} />} />
+          <Route path={LOCATION.SIGNUP} element={<Register handleSubmit={handleSignup} />} />
+          <Route path={LOCATION.PROFILE} element={
+            <RequireAuth redirectTo={LOCATION.HOME}>
               <Profile handleLogout={handleLogout} handleSubmit={handleUpdateUser} />
             </RequireAuth>
           } />
