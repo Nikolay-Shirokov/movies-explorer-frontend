@@ -4,6 +4,7 @@ import Preloader from '../Preloader/Preloader';
 import './SearchForm.css';
 import { MOVIE_DURATION_SHORTLIMIT, DEFAULT_ERROR_MESSAGE, LOCATION } from '../../utils/const';
 import { defineSavedState } from '../../utils/utils';
+import { useLocation } from 'react-router-dom';
 
 function SearchForm(props) {
 
