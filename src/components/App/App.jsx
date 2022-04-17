@@ -16,6 +16,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import RequireAuth from '../RequireAuth/RequireAuth';
 import api from '../../utils/MainApi';
 import moviesApi from '../../utils/MovieApi';
+import { LOCATION } from '../../utils/const';
 
 function App() {
 
@@ -74,7 +75,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/movies" element={
+          <Route path={LOCATION.MOVIES} element={
             <RequireAuth redirectTo="/">
               <Movies
                 saveMovie={saveMovie}
@@ -83,7 +84,7 @@ function App() {
               />
             </RequireAuth>
           } />
-          <Route path="/saved-movies" element={
+          <Route path={LOCATION.SAVED_MOVIES} element={
             <RequireAuth redirectTo="/">
               <SavedMovies
                 saveMovie={saveMovie}
