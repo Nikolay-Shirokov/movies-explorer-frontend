@@ -17,6 +17,7 @@ import RequireAuth from '../RequireAuth/RequireAuth';
 import api from '../../utils/MainApi';
 import moviesApi from '../../utils/MovieApi';
 import { LOCATION } from '../../utils/const';
+import { defineSavedState } from '../../utils/utils';
 
 function App() {
 
@@ -53,17 +54,7 @@ function App() {
   function getMovies() {
     return Promise.all([moviesApi.getAllMovies(), getSavedMovies()])
       .then(([moviesAll, savedMovies]) => {
-        if (savedMovies.length === 0) {
-          return moviesAll;
-        }
-        const savedMoviesMap = new Map();
-        savedMovies.forEach(movie => {
-          savedMoviesMap.set(movie.movieId, true);
-        })
-        return moviesAll.map(movie => {
-          movie.isSaved = (savedMoviesMap.get(movie.id) === true)
-          return movie
-        });
+        return defineSavedState(moviesAll, savedMovies);
       })
   }
 

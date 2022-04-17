@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import Preloader from '../Preloader/Preloader';
 import './SearchForm.css';
-import { MOVIE_DURATION_SHORTLIMIT, DEFAULT_ERROR_MESSAGE } from '../../utils/const';
+import { MOVIE_DURATION_SHORTLIMIT, DEFAULT_ERROR_MESSAGE, LOCATION } from '../../utils/const';
+import { defineSavedState } from '../../utils/utils';
 
 function SearchForm(props) {
 
   const { moviesArray, setMoviesArray } = props;
+
+  const location = useLocation();
 
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useState({ searchText: '', shortfilm: false })
@@ -26,6 +29,17 @@ function SearchForm(props) {
     setMoviesArray(newMoviesArray);
   }
 
+  function saveParams() {
+    if (location.pathname !== LOCATION.MOVIES) {
+      return;
+    }
+    localStorage.setItem(LOCATION.MOVIES, JSON.stringify({
+      searchParams,
+      moviesAll,
+      moviesArray
+    }))
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
@@ -34,6 +48,7 @@ function SearchForm(props) {
       .then(moviesNotFiltered => {
         setMoviesAll(moviesNotFiltered);
         filterMovies(moviesNotFiltered);
+        saveParams();
       })
       .catch(err => {
         setInfo({error: true, text: err.message || DEFAULT_ERROR_MESSAGE})
@@ -49,11 +64,35 @@ function SearchForm(props) {
     })
   }
 
-  useEffect(()=> {
+  useEffect(() => {
+    if (location.pathname === LOCATION.MOVIES) {
+      const restoredParamsJSON = localStorage.getItem(LOCATION.MOVIES);
+      const savedMoviesJSON = localStorage.getItem(LOCATION.SAVED_MOVIES);
+
+      if (!restoredParamsJSON) {
+        return;
+      }
+
+      const restoredParams = JSON.parse(restoredParamsJSON);
+      const savedMovies = !savedMoviesJSON? []: JSON.parse(savedMoviesJSON);
+
+      const restoredMovies = defineSavedState(restoredParams.moviesAll, savedMovies);
+
+      setMoviesAll(restoredMovies);
+      setSearchParams(restoredParams.searchParams || searchParams);
+      filterMovies(restoredMovies);
+
+    } else {
+      const savedMovies = localStorage.getItem(LOCATION.SAVED_MOVIES);
+      setMoviesAll(!savedMovies, [], JSON.parse(savedMovies));
+    }
+  }, [])
+
+  useEffect(() => {
     filterMovies(moviesAll);
   }, [searchParams.shortfilm])
 
-  useEffect(()=>{
+  useEffect(() => {
     if (searchParams.searchText
         && !info.error
         && moviesArray.length === 0) {
