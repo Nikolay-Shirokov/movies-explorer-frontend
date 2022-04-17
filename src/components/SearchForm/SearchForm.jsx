@@ -80,7 +80,6 @@ function SearchForm(props) {
 
       setMoviesAll(restoredMovies);
       setSearchParams(restoredParams.searchParams || searchParams);
-      filterMovies(restoredMovies);
 
     } else {
       const savedMovies = localStorage.getItem(LOCATION.SAVED_MOVIES);
