@@ -28,16 +28,16 @@ function SearchForm(props) {
         && (!searchParams.shortfilm || movie.duration <= MOVIE_DURATION_SHORTLIMIT)
     )
     setMoviesArray(newMoviesArray);
+    saveParams(moviesNotFiltered);
   }
 
-  function saveParams() {
+  function saveParams(moviesNotFiltered) {
     if (location.pathname !== LOCATION.MOVIES) {
       return;
     }
     localStorage.setItem(LOCATION.MOVIES, JSON.stringify({
       searchParams,
-      moviesAll,
-      moviesArray
+      moviesAll: moviesNotFiltered
     }))
   }
 
@@ -49,7 +49,6 @@ function SearchForm(props) {
       .then(moviesNotFiltered => {
         setMoviesAll(moviesNotFiltered);
         filterMovies(moviesNotFiltered);
-        saveParams();
       })
       .catch(err => {
         setInfo({error: true, text: err.message || DEFAULT_ERROR_MESSAGE})
