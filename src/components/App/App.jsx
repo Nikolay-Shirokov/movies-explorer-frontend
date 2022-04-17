@@ -40,11 +40,33 @@ function App() {
   }
 
   function saveMovie(movie) {
-    return api.postSavedMovie(movie);
+    return api.postSavedMovie(movie)
+      .then(movie => {
+
+        movie.isSaved = true;
+
+        const savedMoviesJSON = localStorage.getItem(LOCATION.SAVED_MOVIES);
+        const savedMovies = !savedMoviesJSON? []: JSON.parse(savedMoviesJSON);
+        const newSavedMovies = [...savedMovies, movie];
+
+        localStorage.setItem(LOCATION.SAVED_MOVIES, JSON.stringify(newSavedMovies));
+
+      });
   }
 
   function unsaveMovie(movie) {
-    return api.deleteSavedMovie(movie.movieId || movie.id);
+    return api.deleteSavedMovie(movie.movieId || movie.id)
+    .then(deletedMovie => {
+
+      movie.isSaved = true;
+
+      const savedMoviesJSON = localStorage.getItem(LOCATION.SAVED_MOVIES);
+      const savedMovies = !savedMoviesJSON? []: JSON.parse(savedMoviesJSON);
+      const newSavedMovies = savedMovies.filter(movie => ((movie.movieId || movie.id) === deletedMovie.movieId));
+
+      localStorage.setItem(LOCATION.SAVED_MOVIES, JSON.stringify(newSavedMovies));
+
+    });
   }
 
   function getSavedMovies() {
