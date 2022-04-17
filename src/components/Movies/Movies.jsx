@@ -7,13 +7,19 @@ function Movies(props) {
 
   const [moviesArray, setMoviesArray] = useState([]);
 
-/*   useEffect(() => {
-      })
-  }, []) */
+  /*   useEffect(() => {
+        })
+    }, []) */
 
   return (
     <main className="movies">
-      <SearchForm getMovies={props.getMovies} moviesArray={moviesArray} setMoviesArray={setMoviesArray} />
+      <SearchForm
+        initialValues={{
+        }}
+        getMovies={props.getMovies}
+        moviesArray={moviesArray}
+        setMoviesArray={setMoviesArray}
+      />
       <MoviesCardList {...props} moviesArray={moviesArray} />
     </main>
   );
