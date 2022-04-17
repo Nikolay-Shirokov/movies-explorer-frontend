@@ -22,6 +22,8 @@ function SavedMovies(props) {
   const getMovies = () => {
     const moviesJSON = localStorage.getItem(pathname);
     const moviesNotFiltered = !moviesNotFiltered? []: JSON.parse(moviesJSON);
+    console.log(moviesJSON);
+    console.dir(moviesNotFiltered);
     return Promise.resolve(moviesNotFiltered || []);
   }
 
