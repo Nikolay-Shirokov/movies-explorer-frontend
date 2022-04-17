@@ -14,6 +14,7 @@ function MoviesCardList(props) {
 
     if (itSavedMovies) {
       setMoviesQtyLimit(9999);
+      return;
     }
 
     const windowWidth = window.innerWidth;
@@ -32,6 +33,7 @@ function MoviesCardList(props) {
 
     if (itSavedMovies) {
       setMoviesQtyMore(0);
+      return;
     }
 
     const windowWidth = window.innerWidth;
