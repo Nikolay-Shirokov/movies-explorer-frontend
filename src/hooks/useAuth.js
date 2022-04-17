@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { LOCATION } from '../utils/const';
 import api from "../utils/MainApi";
 
 export function useAuth() {
@@ -34,7 +35,7 @@ export function useAuth() {
           loggedIn: true,
           ...res,
         });
-        navigate('/movies')
+        navigate(LOCATION.MOVIES)
       })
   }
 
@@ -47,7 +48,7 @@ export function useAuth() {
       .then(res => {
         setCurrentUser(emptyAuthInfo);
         localStorage.clear();
-        navigate('/')
+        navigate(LOCATION.HOME)
       })
   }
 
