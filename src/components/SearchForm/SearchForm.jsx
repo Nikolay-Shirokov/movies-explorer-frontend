@@ -73,13 +73,15 @@ function SearchForm(props) {
         return;
       }
 
+      setInfo(emptyInfo);
+
       const restoredParams = JSON.parse(restoredParamsJSON);
       const savedMovies = !savedMoviesJSON? []: JSON.parse(savedMoviesJSON);
 
       const restoredMovies = defineSavedState(restoredParams.moviesAll, savedMovies);
 
-      setMoviesAll(restoredMovies);
       setSearchParams(restoredParams.searchParams || searchParams);
+      setMoviesAll(restoredMovies);
 
     } else {
       const savedMovies = localStorage.getItem(LOCATION.SAVED_MOVIES);
