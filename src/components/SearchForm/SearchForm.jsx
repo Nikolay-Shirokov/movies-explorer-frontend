@@ -13,7 +13,7 @@ function SearchForm(props) {
   const [moviesAll, setMoviesAll] = useState([]);
 
   const emptyInfo = {text: '', error: false};
-  const [info, setInfo] = useState(emptyInfo);
+  const [info, setInfo] = useState(props.initialValues.info || emptyInfo);
 
   function filterMovies(moviesNotFiltered) {
     const newMoviesArray = moviesNotFiltered.filter(

@@ -3,6 +3,7 @@ import '../Movies/Movies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { DEFAULT_ERROR_MESSAGE } from '../../utils/const';
 
 function SavedMovies(props) {
 
@@ -11,24 +12,35 @@ function SavedMovies(props) {
 
   const [moviesArray, setMoviesArray] = useState([]);
 
-  useEffect(()=> {
+  const [info, setInfo] = useState();
+
+  useEffect(() => {
     props.getMovies()
       .then(moviesNotFiltered => {
         setMoviesArray(moviesNotFiltered);
         localStorage.setItem(pathname, JSON.stringify(moviesNotFiltered));
       })
+      .catch(err => {
+        setInfo({ error: true, text: err.message || DEFAULT_ERROR_MESSAGE })
+      })
   }, []);
 
   const getMovies = () => {
     const moviesJSON = localStorage.getItem(pathname);
-    const moviesNotFiltered = !moviesJSON? []: JSON.parse(moviesJSON);
+    const moviesNotFiltered = !moviesJSON ? [] : JSON.parse(moviesJSON);
     return Promise.resolve(moviesNotFiltered || []);
   }
 
   return (
     <main className="movies">
-      <SearchForm getMovies={getMovies} moviesArray={moviesArray} setMoviesArray={setMoviesArray} />
-      <MoviesCardList itSavedMovies={true} {...props} moviesArray={moviesArray}/>
+      <SearchForm
+        initialValues={{
+          info,
+        }}
+        getMovies={getMovies}
+        moviesArray={moviesArray}
+        setMoviesArray={setMoviesArray} />
+      <MoviesCardList itSavedMovies={true} {...props} moviesArray={moviesArray} />
     </main>
   );
 }
