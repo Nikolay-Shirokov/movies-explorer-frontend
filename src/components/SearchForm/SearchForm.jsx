@@ -99,6 +99,10 @@ function SearchForm(props) {
         && moviesArray.length === 0) {
       setInfo({error: false, text: 'Ничего не найдено'})
     }
+    if (moviesArray.length > 0
+      && !info.error) {
+      setInfo(emptyInfo);
+    }
   }, [moviesArray])
 
   return (
