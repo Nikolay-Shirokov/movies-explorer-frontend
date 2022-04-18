@@ -10,6 +10,8 @@ function FormField(props) {
         className={`form-field__input ${!props.error ? '' : 'form-field__input_type_error'}`}
         type={props.type}
         name={props.name}
+        pattern={props.pattern}
+        autoComplete="off"
         required />
       <span
         className={`form-field__input-error ${!props.error ? '' : 'form-field__input-error_visible'}`}

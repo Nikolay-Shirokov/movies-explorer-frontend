@@ -1,21 +1,65 @@
+import { useContext, useState } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import './Profile.css';
 
 function Profile(props) {
+
+  const currentUser = useContext(CurrentUserContext);
+  const { values, handleChange, errors, isValid } = useFormAndValidation({ name: currentUser.name, email: currentUser.email });
+
+  const defaultErrorText = 'Что-то пошло не так! Попробуйте ещё раз.';
+  const [status, setStatus] = useState({ ok: true, text: '' });
+
+  let isModifed = false;
+  for (let key of Object.keys(values)) {
+    if (values[key] !== currentUser[key]) {
+      isModifed = true;
+      break;
+    }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    props.handleSubmit(values)
+      .then(res => {
+        setStatus({
+          ok: true,
+          text: props.succesText || 'Данные профиля успешно обновлены!',
+        })
+      })
+      .catch(err => {
+        setStatus({
+          ok: false,
+          text: err.message || defaultErrorText,
+        })
+      })
+  }
+
   return (
     <main className="profile">
-      <h2 className="profile__title">Привет, <span className="profile__name">Виталий</span>!</h2>
-      <ul className="profile__fields">
-        <li className="profile__field">
-          <p className="profile__label">Имя</p>
-          <p className="profile__value">Виталий</p>
-        </li>
-        <li className="profile__field">
-          <p className="profile__label">E-mail</p>
-          <p className="profile__value">pochta@yandex.ru</p>
-        </li>
-      </ul>
-      <button className="profile__edit-button active-element">Редактировать</button>
-      <button className="profile__signout-button active-element">Выйти из аккаунта</button>
+      <form className="profile__form" onSubmit={handleSubmit} noValidate>
+        <h2 className="profile__title">Привет, <span className="profile__name">{currentUser.name}</span>!</h2>
+        <ul className="profile__fields">
+          <li className="profile__field">
+            <label className="profile__label" htmlFor="name">Имя</label>
+            <input className="profile__value" type="text" name="name" id="name" placeholder="Укажите имя.." value={values.name} onChange={handleChange} pattern="[a-zA-Zа-яёА-ЯЁ\s\-]*" required autoComplete="off"/>
+            <span className={`profile__input-error ${!errors.name ? '' : 'profile__input-error_visible'}`} data-input-name="name">{errors.name}</span>
+          </li>
+          <li className="profile__field">
+            <label className="profile__label" htmlFor="email">E-mail</label>
+            <input className="profile__value" type="email" name="email" id="email" placeholder="Укажите email.." value={values.email} onChange={handleChange} required autoComplete="off"/>
+            <span className={`profile__input-error ${!errors.email ? '' : 'profile__input-error_visible'}`} data-input-name="email">{errors.email}</span>
+          </li>
+        </ul>
+        <p className={`profile__submit-error ${status.ok ? 'profile__submit-error_success' : 'profile__submit-error_visible'}`}>{status.text}</p>
+        <button
+          className={`profile__edit-button ${!(isValid && isModifed) ? 'profile__edit-button_disabled' : 'active-element'}`}
+          type="submit"
+          disabled={!(isValid && isModifed)}
+        >Редактировать</button>
+      </form>
+      <button className="profile__signout-button active-element" onClick={props.handleLogout}>Выйти из аккаунта</button>
     </main>
   );
 }

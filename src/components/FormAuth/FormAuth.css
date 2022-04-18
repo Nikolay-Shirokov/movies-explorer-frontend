@@ -47,6 +47,22 @@
   border: none;
 }
 
+.form-auth__submit-button_disabled {
+  background-color: var(--basic-gray);
+}
+
+.form-auth__submit-error {
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--basic-error);
+  text-align: center;
+  opacity: 0;
+}
+
+.form-auth__submit-error_visible {
+  opacity: 1;
+}
+
 @media screen and (max-width: 450px) {
   .form-auth {
     padding-left: 30px;

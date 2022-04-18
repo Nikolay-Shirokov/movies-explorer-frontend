@@ -1,7 +1,7 @@
 import {useState, useCallback} from 'react';
 
-export function useFormAndValidation() {
-  const [ values, setValues ] = useState({});
+export function useFormAndValidation(initValues = {}) {
+  const [ values, setValues ] = useState(initValues);
   const [ errors, setErrors ] = useState({});
   const [ isValid, setIsValid ] = useState(false);
 
