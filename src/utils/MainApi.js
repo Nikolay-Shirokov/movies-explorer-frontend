@@ -53,7 +53,10 @@ class Api {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(userInfo),
+      body: JSON.stringify({
+        email: userInfo.email,
+        password: userInfo.password
+      }),
     }
     return this._sendQuery('signin', queryParams)
   }
